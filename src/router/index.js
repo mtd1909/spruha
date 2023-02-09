@@ -1,23 +1,59 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
+import Main from '../views/Main.vue'
+import Dashboard from '../home/Dashboard.vue'
+import CryptoMarketcap from '../views/CryptoMarketcap.vue'
+
+import VueApexCharts from 'vue-apexcharts'
+Vue.use(VueApexCharts)
+
+import ProgressBar from 'vuejs-progress-bar'
+Vue.use(ProgressBar)
+
+Vue.component('apexchart', VueApexCharts)
 Vue.use(VueRouter)
+Vue.use(ElementUI);
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    redirect: '/home',
   },
   {
-    path: '/about',
-    name: 'About',
-    /* route level code-splitting
-       this generates a separate chunk (about.[hash].js) for this route
-       which is lazy-loaded when the route is visited. */
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/home',
+    name: 'Dashboard',
+    component: Main,
+    redirect: { name: 'Home'},
+    children: [
+      {
+        path: '',
+        name: 'Dashboard',
+        component: Dashboard,
+      },
+      {
+        path: '/crypto-marketcap',
+        name: 'CryptoMarketcap',
+        component: CryptoMarketcap,
+      }
+    ]
+  },
+  {
+    path: '/crypto',
+    name: 'Crypto',
+    component: Main,
+    redirect: { name: 'Home'},
+    children: [
+      {
+        path: '/crypto-marketcap',
+        name: 'CryptoMarketcap',
+        component: CryptoMarketcap,
+      }
+    ]
+  },
 ]
 
 const router = new VueRouter({

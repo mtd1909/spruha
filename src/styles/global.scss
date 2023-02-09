@@ -1,3 +1,191 @@
-.hello {
-  background: red;
+/* Start Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+:root {
+  --primary_bg: #6259ca;
+  --primary_bg_color: #6259ca;
+  --primary_bg_hover: #403fad;
+  --primary_transparent_color: rgba(98, 89, 202, 0.16);
+  --primary_bg_border: #6259ca;
+  --primary005: rgba(98, 89, 202, 0.05);
+  --primary02: rgba(98, 89, 202, 0.2);
+  --primary03: rgba(98, 89, 202, 0.3);
+  --primary05: rgba(98, 89, 202, 0.5);
+  --primary07: rgba(98, 89, 202, 0.7);
+  --primary08: rgba(98, 89, 202, 0.8);
+  --primary01: rgba(98, 89, 202, 0.1);
+  --dark_theme: #0e0e23;
+  --dark_body: #24243e;
+  --dark_border: rgba(255, 255, 255, 0.15);
+  --dark_color: #d0d0e2;
+  --dark_primary: #6259ca;
+  --indigo: $indigo;
+  --purple: $purple;
+  --pink: #f1388b;
+  --orange: $orange;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --title_menu: rgba(255, 255, 255, 0.3);
+  --text_menu: rgba(255, 255, 255, 0.4);
+  --bg_body: #eaedf7;
+  --text-body: #1d212f;
+  --text-title: #170c6b;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: var(--bg_body);
+  color: var(--text-body);
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+li {
+  list-style-type: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.container__fluid {
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+  @media screen and (min-width: 992px) {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+.ti-angle-right {
+  font-size: 8px;
+  margin-left: auto;
+  margin-right: 20px;
+  transition: all 0.5s ease-out;
+}
+.sidebar {
+  &.open {
+    .sidebar__menu {
+      &-list {
+        .list__logo {
+          a {
+            img {
+              &.dark {
+                display: block;
+              }
+
+              &.light {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .sidebar__menu {
+    &-list {
+      .list__logo {
+        a {
+          img {
+            &.dark {
+              @media screen and (max-width: 991px) {
+                display: block;
+              }
+            }
+
+            &.light {
+              @media screen and (max-width: 991px) {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.main {
+  padding-top: 66px;
+  padding-left: 240px;
+  transition: all 0.5s ease;
+  @media (max-width: 992px) {
+    padding-left: 0;
+  }
+}
+
+
+.menu_bars_overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #333;
+  z-index: 9;
+  opacity: 0.5;
+}
+
+.back-to-top {
+  font-size: 16px;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  bottom: 230px;
+  right: 20px;
+  z-index: 999;
+  border-radius: 5px;
+  background: var(--primary_bg);
+  color: var(--white);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease-in-out;
+  animation: float 1500ms infinite ease-in-out;
+  &:hover {
+    cursor: pointer;
+    background: var(--white);
+    color: var(--primary_bg);
+  }
+  &.open {
+    bottom: 30px;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.wrapper {
+  overflow: hidden;
+}
+/* End Reset CSS */

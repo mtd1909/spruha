@@ -1,0 +1,16 @@
+.footer {
+  padding: 15px;
+  background-color: var(--white);
+  margin-top: 24px;
+  text-align: center;
+  margin-left: 240px;
+  transition: all 0.5s ease;
+  @media (max-width: 992px) {
+    margin-left: 0;
+  }
+  p {
+    a {
+      color: var(--primary_bg);
+    }
+  }
+}
